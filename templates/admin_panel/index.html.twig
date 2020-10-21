@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Панель адміністртора{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        Тут знаходиться панель адміністрування сайтом
+
+        <div class="row">{% if is_granted('ROLE_ADMIN') %}
+                <a class="nav-link " href="{{ path('cars_add') }}">
+                    <div class="card bg-light">
+                        <div class="card-body ">
+                            <h5 class="card-title">Add a car</h5>
+                        </div>
+                    </div>
+                </a>
+                <a class="nav-link " href="{{ path('cars_update') }}">
+                    <div class="card bg-light">
+                        <div class="card-body ">
+                            <h5 class="card-title">Update a car</h5>
+                        </div>
+                    </div>
+                </a>
+                <a class="nav-link " href="{{ path('cars_remove') }}">
+                    <div class="card bg-light">
+                        <div class="card-body ">
+                            <h5 class="card-title">Remove a car</h5>
+                        </div>
+                    </div>
+                </a>
+            {% endif %}</div>
+
+    </div>
+
+{% endblock %}

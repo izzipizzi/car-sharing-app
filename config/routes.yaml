@@ -1,3 +1,31 @@
 #index:
 #    path: /
 #    controller: App\Controller\DefaultController::index
+login_check:
+  path: /login_check
+admin_login_check:
+  path: /admin/login_check
+sign_up:
+  path: /signup
+login:
+  path: /login
+home:
+  path : /
+cars:
+  path: /cars
+  controller: App\Controller\CarsController::cars.list
+cars_add:
+  path: /admin/panel/cars/add
+  controller: App\Controller\CarsController::addCar
+cars_update:
+  path: /admin/panel/cars/update
+  controller: App\Controller\CarsController::updateCar
+cars_remove:
+  path: /admin/panel/cars/remove
+  controller: App\Controller\CarsController::removeCar
+admin_panel:
+  path : /admin/panel
+  controller: App\Controller\AdminPanelController::loadPanel
+#carByID:
+#  path : /cars/{id}
+#  controller : App\Controller\CarsController::cars.carByID
