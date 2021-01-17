@@ -15,9 +15,26 @@
             background: #F5F5F5;
             padding: 2px 6px;
         }
+        ul{
+            display: flex;
+            flex-direction: row;
+        }
+        li{
+            list-style: none;
+        }
     </style>
 
     <div class="container">
+
+        <div class="row">
+            <ul>
+                <li>{{ knp_pagination_sortable(cars, 'Номер', 'c.id') }}</li>
+                <li>{{ knp_pagination_sortable(cars, 'Марка ', 'c.name') }}</li>
+                <li>{{ knp_pagination_sortable(cars, 'Модель', 'c.model') }}</li>
+                <li>{{ knp_pagination_sortable(cars, 'Рік', 'c.year') }}</li>
+                <li>{{ knp_pagination_sortable(cars, 'Статус', 'c.status') }}</li>
+            </ul>
+        </div>
         <div class="row">
 
 
@@ -38,6 +55,10 @@
                             <ul class="list-group">
                                 <li class="list-group-item">Колір {{ car.color }}</li>
                                 <li class="list-group-item">Рік {{ car.year }}</li>
+
+                                <li class="list-group-item">Тип {{ car.type.typeName}} </li>
+                                <li class="list-group-item">Місце розташування {{ car.location}} </li>
+{#                                <li class="list-group-item">Тип {{ fc }} </li>#}
                                 {% if car.status =='FREE' %}
                                 <li class="list-group-item">Зараз доступна</li>
                             </ul>
@@ -47,10 +68,10 @@
 
 
                             {% elseif car.status =='IN_USE'%}
-                                    <li class="list-group-item">Зараз недоступна</li>
+                                    <li class="list-group-item">Буде доступна з {{ car.dateTo.format('Y-m-d') }} {{ car.timeTo.format('H:i:s') }}</li>
                                 </ul>
                                 </p>
-                                <a class="btn btn-primary disabled" href="{{ path('cars.carByID', {id: car.id}) }}" >Переглянути</a>
+                                <a class="btn btn-danger disabled" href="{{ path('cars.carByID', {id: car.id}) }}" >Недоступна</a>
 
 
                             {% endif %}
@@ -65,5 +86,9 @@
             {% endfor %}
 
         </div>
+        {# display navigation #}
+            <div class="navigation align-content-center">
+                {{ knp_pagination_render(cars) }}
+            </div>
     </div>
 {% endblock %}

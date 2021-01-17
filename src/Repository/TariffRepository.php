@@ -2,21 +2,21 @@
 
 namespace App\Repository;
 
-use App\Entity\CarTypes;
+use App\Entity\Tariff;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method CarTypes|null find($id, $lockMode = null, $lockVersion = null)
- * @method CarTypes|null findOneBy(array $criteria, array $orderBy = null)
- * @method CarTypes[]    findAll()
- * @method CarTypes[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Tariff|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Tariff|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Tariff[]    findAll()
+ * @method Tariff[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class CarTypesRepository extends ServiceEntityRepository
+class TariffRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, CarTypes::class);
+        parent::__construct($registry, Tariff::class);
     }
 
     // /**

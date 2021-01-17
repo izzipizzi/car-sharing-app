@@ -26,6 +26,10 @@ class CarTypes
      * @ORM\Column(type="string", length=255)
      */
     private $type_desc;
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $type_price;
 
     public function getId(): ?int
     {
@@ -52,6 +56,17 @@ class CarTypes
     public function setTypeDesc(string $type_desc): self
     {
         $this->type_desc = $type_desc;
+
+        return $this;
+    }
+    public function getTypePrice(): ?string
+    {
+        return $this->type_price;
+    }
+
+    public function setTypePrice(string $type_price): self
+    {
+        $this->type_price = $type_price;
 
         return $this;
     }

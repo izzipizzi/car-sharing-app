@@ -13,22 +13,22 @@ use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class TariffType extends AbstractType{
+class CarTypesType extends AbstractType{
     public function buildForm(\Symfony\Component\Form\FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name',TextType::class,[
+        $builder->add('type_name',TextType::class,[
             'required' =>true,
             'constraints'=>[
                 new NotBlank(),
             ]
         ])
-            ->add('description',TextType::class,[
+            ->add('type_desc',TextType::class,[
                 'required' =>true,
                 'constraints'=>[
                     new NotBlank(),
                 ]
             ])
-            ->add('price',NumberType::class,[
+            ->add('type_price',NumberType::class,[
                 'required' =>true,
                 'constraints'=>[
                     new NotBlank(),
@@ -36,12 +36,12 @@ class TariffType extends AbstractType{
             ])
 
 
-            ->add('save',SubmitType::class,array('label'=>'Add Tariff'));
+            ->add('save',SubmitType::class,array('label'=>'Add Car Type'));
     }
     public function configureOptions(\Symfony\Component\OptionsResolver\OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => \App\Entity\Tariff::class
+            'data_class' => \App\Entity\CarTypes::class
         ]);
     }
 }

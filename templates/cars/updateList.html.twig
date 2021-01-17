@@ -23,9 +23,9 @@
 
             {% for car in cars %}
 
-                <div class="col-lg-4">
+                <div class="col-lg-4 ">
 
-                    <div class="card ">
+                    <div class="card  bg-light">
                         <div class="card-body ">
                             <img style="height: 10rem" class="card-img-top" src="{{ car.photo }}" alt=""/>
                             <h5 class="card-title">
@@ -42,7 +42,8 @@
                                 <li class="list-group-item">Зараз доступна</li>
                             </ul>
                             </p>
-                            <a class="btn btn-primary" href="{{ path('cars.carByID', {id: car.id}) }}">Переглянути</a>
+                            <a class="btn btn-outline-primary" href="{{ path('cars.updateCarByID', {id: car.id}) }}">Переглянути</a>
+                            <a class="btn btn-danger" href="{{ path('cars.removeCarByID', {id: car.id}) }}">Видалити</a>
 
 
 
@@ -50,7 +51,7 @@
                                     <li class="list-group-item">Зараз недоступна</li>
                                 </ul>
                                 </p>
-                                <a class="btn btn-primary disabled" href="{{ path('cars.carByID', {id: car.id}) }}" >Переглянути</a>
+                                <a class="btn btn-danger" disabled href="{{ path('cars.updateCarByID', {id: car.id}) }}" >Переглянути</a>
 
 
                             {% endif %}

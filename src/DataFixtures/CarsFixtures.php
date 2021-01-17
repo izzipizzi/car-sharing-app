@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\Cars;
+use App\Entity\CarTypes;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -13,6 +14,8 @@ class CarsFixtures extends Fixture
 
     private $em;
 
+    private $car_type ;
+
     public function __construct(UserPasswordEncoderInterface $encoder, EntityManagerInterface $entityManager)
     {
         $this->encoder = $encoder;
@@ -21,6 +24,7 @@ class CarsFixtures extends Fixture
 
     public function load(\Doctrine\Persistence\ObjectManager $manager)
     {
+        $car_type = new CarTypes();
         $carsData = [
             0 => [
                 'name' => 'Audi',
@@ -28,15 +32,24 @@ class CarsFixtures extends Fixture
                 'color' => 'Red',
                 'year' => 2008,
                 'status' => 'FREE',
-                'photo' =>'../images/cars/audi-a6.jpg'
-            ],
+                'photo' =>'../images/cars/audi-a6.jpg',
+                'dateTo' =>new \DateTime('now'),
+                'time_to' => new \DateTime('now'),
+                'location' => 'Дрогобич офіс',
+                'type' =>$car_type
+
+        ],
             1 => [
                 'name' => 'Toyota',
                 'model' => 'Land Cruiser',
                 'color' => 'Black',
                 'year' => 2018,
                 'status' => 'FREE',
-                'photo' =>'../images/cars/toyota_land-cruiser-200.jpg'
+                'photo' =>'../images/cars/toyota_land-cruiser-200.jpg',
+                'dateTo' => new \DateTime('now'),
+                'time_to' => new \DateTime('now'),
+                'location' => 'Дрогобич офіс',
+                'type' => $car_type
 
             ],
             2 => [
@@ -45,7 +58,11 @@ class CarsFixtures extends Fixture
                 'color' => 'Red',
                 'year' => 2015,
                 'status' => 'IN_USE',
-                'photo' =>'../images/cars/audi_tt.jpg'
+                'photo' =>'../images/cars/audi_tt.jpg',
+                'dateTo' => new \DateTime('now'),
+                'time_to' => new \DateTime('now'),
+                'location' => 'Дрогобич офіс',
+                'type' => $car_type
 
             ],
             3 => [
@@ -54,7 +71,11 @@ class CarsFixtures extends Fixture
                 'color' => 'Black',
                 'year' => 2018,
                 'status' => 'FREE',
-                'photo' =>'../images/cars/passat.jpeg'
+                'photo' =>'../images/cars/passat.jpeg',
+                'dateTo' => new \DateTime('now'),
+                'time_to' => new \DateTime('now'),
+                'location' => 'Дрогобич офіс',
+                'type' => $car_type
 
             ],
             4 => [
@@ -63,7 +84,11 @@ class CarsFixtures extends Fixture
                 'color' => 'Blue',
                 'year' => 2012,
                 'status' => 'FREE',
-                'photo' =>'../images/cars/bmw_m5_6.jpg'
+                'photo' =>'../images/cars/bmw_m5_6.jpg',
+                'dateTo' => new \DateTime('now'),
+                'time_to' => new \DateTime('now'),
+                'location' => 'Дрогобич офіс',
+                'type' => $car_type
 
             ],
         ];
@@ -75,7 +100,11 @@ class CarsFixtures extends Fixture
             $newCar->setColor($car['color']);
             $newCar->setYear($car['year']);
             $newCar->setStatus($car['status']);
-            $newCar->setPhot($car['photo']);
+            $newCar->setPhoto($car['photo']);
+            $newCar->setDateTo($car['dateTo']);
+            $newCar->setTimeTo($car['time_to']);
+            $newCar->setLocation($car['location']);
+//            $newCar->setType($car['type']);
             $this->em->persist($newCar);
         }
 

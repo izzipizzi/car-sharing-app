@@ -19,5 +19,9 @@
 {#                    <div>{{ car.status }}</div>#}
                     <img class="img-fluid" src="{{ car.photo }}" alt="">
 
+
+                <a class="btn btn-primary" href="{{ path('orders.orderCar', {id: car.id}) }}">Замовити</a>
+
+
     </div>
 {% endblock %}

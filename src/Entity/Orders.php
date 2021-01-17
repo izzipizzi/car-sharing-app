@@ -18,16 +18,23 @@ class Orders
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity=User::class, inversedBy="orders", cascade={"persist", "remove"})
+     * @ORM\ManyToOne (targetEntity=User::class, inversedBy="orders", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $client_id;
 
     /**
-     * @ORM\OneToOne(targetEntity=Cars::class, inversedBy="orders", cascade={"persist", "remove"})
+     *
+     * @ORM\ManyToOne  (targetEntity=Cars::class, inversedBy="orders", cascade={"persist", "remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $car_id;
+
+    /**
+     *
+     * @ORM\ManyToOne  (targetEntity=Tariff::class,cascade={"persist", "remove"})
+     */
+    private $tariff_id;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -44,16 +51,16 @@ class Orders
      */
     private $price;
 
-    /**
-     * @ORM\OneToOne(targetEntity=Tariff::class, inversedBy="orders", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $tariff_id;
+
 
     /**
      * @ORM\Column(type="time")
      */
-    private $time;
+    private $time_from;
+    /**
+     * @ORM\Column(type="time")
+     */
+    private $time_to;
 
     public function getId(): ?int
     {
@@ -80,6 +87,17 @@ class Orders
     public function setCarId(Cars $car_id): self
     {
         $this->car_id = $car_id;
+
+        return $this;
+    }
+    public function getTariffId(): ?Tariff
+    {
+        return $this->tariff_id;
+    }
+
+    public function setTariffId(Tariff $tariff_id): self
+    {
+        $this->tariff_id = $tariff_id;
 
         return $this;
     }
@@ -120,26 +138,27 @@ class Orders
         return $this;
     }
 
-    public function getTariffId(): ?Tariff
+
+    public function getTimeFrom(): ?\DateTimeInterface
     {
-        return $this->tariff_id;
+        return $this->time_from;
     }
 
-    public function setTariffId(Tariff $tariff_id): self
+    public function setTimeFrom(\DateTimeInterface $time_from): self
     {
-        $this->tariff_id = $tariff_id;
+        $this->time_from = $time_from;
 
         return $this;
     }
 
-    public function getTime(): ?\DateTimeInterface
+    public function getTimeTo(): ?\DateTimeInterface
     {
-        return $this->time;
+        return $this->time_to;
     }
 
-    public function setTime(\DateTimeInterface $time): self
+    public function setTimeTo(\DateTimeInterface $time_to): self
     {
-        $this->time = $time;
+        $this->time_to = $time_to;
 
         return $this;
     }

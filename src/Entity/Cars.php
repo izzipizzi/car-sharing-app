@@ -46,10 +46,28 @@ class Cars
      * @ORM\Column(type="string", length=255)
      */
     private $status;
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $location;
 
     /**
-     * @ORM\OneToOne(targetEntity=Orders::class, mappedBy="car_id", cascade={"persist", "remove"})
+     * @ORM\ManyToOne  (targetEntity= CarTypes::class)
      */
+    private $type_id;
+
+    /**
+     * @ORM\Column(type="date", nullable=true, options={"default" : "2021-01-07"})
+     */
+    private $dateTo ;
+    /**
+     * @ORM\Column(type="time",nullable=true, options={"default" : "17:16:18"})
+     */
+    private $time_to;
+    /**
+     * @ORM\OneToMany (targetEntity=Orders::class, mappedBy="car_id", cascade={"persist", "remove"})
+     */
+
     private $orders;
 
     public function getId(): ?int
@@ -143,6 +161,61 @@ class Cars
             $orders->setCarId($this);
         }
 
+        return $this;
+    }
+
+
+    public function getType(): ?CarTypes
+    {
+        return $this->type_id;
+    }
+
+
+    public function setType(CarTypes $type_id): self
+    {
+        $this->type_id = $type_id;
+
+        return $this;
+    }
+
+    public function getDateTo(): ?\DateTimeInterface
+    {
+        return $this->dateTo;
+    }
+
+    public function setDateTo(\DateTimeInterface $dateTo): self
+    {
+        $this->dateTo = $dateTo;
+
+        return $this;
+    }
+
+    public function getTimeTo(): ?\DateTimeInterface
+    {
+        return $this->time_to;
+    }
+
+    public function setTimeTo(\DateTimeInterface $time_to): self
+    {
+        $this->time_to = $time_to;
+
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLocation()
+    {
+        return $this->location;
+    }
+
+    /**
+     * @param mixed $location
+     */
+    public function setLocation($location): self
+    {
+        $this->location = $location;
         return $this;
     }
 }

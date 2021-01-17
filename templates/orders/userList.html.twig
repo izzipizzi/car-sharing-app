@@ -15,11 +15,13 @@
             background: #F5F5F5;
             padding: 2px 6px;
         }
-        ul{
+
+        ul {
             display: flex;
             flex-direction: row;
         }
-        li{
+
+        li {
             list-style: none;
         }
     </style>
@@ -28,67 +30,31 @@
 
         <div class="row">
             <ul>
-                <li>{{ knp_pagination_sortable(cars, 'Номер', 'c.id') }}</li>
-                <li>{{ knp_pagination_sortable(cars, 'Марка ', 'c.name') }}</li>
-                <li>{{ knp_pagination_sortable(cars, 'Модель', 'c.model') }}</li>
-                <li>{{ knp_pagination_sortable(cars, 'Рік', 'c.year') }}</li>
-                <li>{{ knp_pagination_sortable(cars, 'Статус', 'c.status') }}</li>
+                {# <li>{{ knp_pagination_sortable(cars, 'Номер', 'c.id') }}</li> #}
+                {# <li>{{ knp_pagination_sortable(cars, 'Марка ', 'c.name') }}</li> #}
+                {# <li>{{ knp_pagination_sortable(cars, 'Модель', 'c.model') }}</li> #}
+                {# <li>{{ knp_pagination_sortable(cars, 'Рік', 'c.year') }}</li> #}
+                {# <li>{{ knp_pagination_sortable(cars, 'Статус', 'c.status') }}</li> #}
             </ul>
         </div>
         <div class="row">
+            <div class="col-12">
 
-
-            {% for car in cars %}
-
-                <div class="col-lg-4">
-
-                    <div class="card ">
-                        <div class="card-body ">
-                            <img style="height: 10rem" class="card-img-top" src="{{ car.photo }}" alt=""/>
-                            <h5 class="card-title">
-                                {{ car.name }}
-                            </h5>
-                            <h5 class="card-title">
-                                {{ car.model }}
-                            </h5>
-                            <p class="card-text">
-                            <ul class="list-group">
-                                <li class="list-group-item">Колір {{ car.color }}</li>
-                                <li class="list-group-item">Рік {{ car.year }}</li>
-
-                                <li class="list-group-item">Тип {{ car.type.typeName}} </li>
-                                <li class="list-group-item">Місце розташування {{ car.location}} </li>
-{#                                <li class="list-group-item">Тип {{ fc }} </li>#}
-                                {% if car.status =='FREE' %}
-                                <li class="list-group-item">Зараз доступна</li>
-                            </ul>
-                            </p>
-                            <a class="btn btn-primary" href="{{ path('cars.carByID', {id: car.id}) }}">Переглянути</a>
-
-
-
-                            {% elseif car.status =='IN_USE'%}
-                                    <li class="list-group-item">Буде доступна з {{ car.dateTo.format('Y-m-d') }} {{ car.timeTo.format('H:i:s') }}</li>
-                                </ul>
-                                </p>
-                                <a class="btn btn-danger disabled" href="{{ path('cars.carByID', {id: car.id}) }}" >Недоступна</a>
-
-
-                            {% endif %}
-                        </div>
-
-
-                    </div>
-
-
-                </div>
-
-            {% endfor %}
-
+                <ul class="list-group">
+                    {% for order in orders %}
+                        <li class="list-group-item w-100">
+                            <a class="btn btn-outline-primary" href="{{ path('orders.orderByID', {id: order.id}) }}">{{ order.id }}</a>
+                            {{ order.carId.name }} {{ order.carId.model }} {{ order.carId.year }} <b>{{ order.dateFrom.format('Y-m-d')  }} </b>
+                            з  <b>{{ order.timeFrom.format('H:i:s') }} </b>
+                            по<b> {{ order.timeTo.format('H:i:s') }} </b></li>
+                        {# <li class="list-group-item">Dapibus ac facilisis in</li> #}
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
         {# display navigation #}
-            <div class="navigation align-content-center">
-                {{ knp_pagination_render(cars) }}
-            </div>
+        <div class="navigation align-content-center">
+            {{ knp_pagination_render(orders) }}
+        </div>
     </div>
 {% endblock %}

@@ -20,12 +20,20 @@ cars_add:
 cars_update:
   path: /admin/panel/cars/update
   controller: App\Controller\CarsController::updateCar
-cars_remove:
-  path: /admin/panel/cars/remove
-  controller: App\Controller\CarsController::removeCar
+
 admin_panel:
   path : /admin/panel
   controller: App\Controller\AdminPanelController::loadPanel
+cars_order:
+  path : /order
+  controller: App\Controller\OrdersController::orderCar
+
+tariff_add:
+  path: /admin/panel/tariff/add
+  controller: App\Controller\TariffController::addTariff
+user_orders:
+  path: /user/personal/orders
+  controller: App\Controller\OrdersController::userOrders
 #carByID:
 #  path : /cars/{id}
 #  controller : App\Controller\CarsController::cars.carByID

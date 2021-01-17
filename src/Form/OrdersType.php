@@ -1,52 +1,66 @@
 <?php
 
-use App\Entity\CarTypes;
+use App\Entity\Tariff;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
-class CarsType extends AbstractType{
+class OrdersType extends AbstractType{
     public function buildForm(\Symfony\Component\Form\FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name',TextType::class,[
+        $builder->add('location',TextType::class,[
             'required' =>true,
             'constraints'=>[
                 new NotBlank(),
             ]
         ])
-            ->add('type',EntityType::class,[
-                'class' =>CarTypes::class,
-                'choice_label' =>'type_name'
+            ->add('tariff_id',EntityType::class,[
+                'class' =>\App\Entity\Tariff::class,
+                'label' =>' tariff',
+                'choice_label' =>'name'
             ])
-            ->add('model',TextType::class)
-            ->add('color',TextType::class)
-            ->add('year',NumberType::class)
-            ->add('photo',FileType::class,[
-                'mapped'=>false,
-                'required'=>true,
+            ->add('dateFrom',DateType::class,[
+                'required' =>true,
                 'constraints'=>[
-                    new File([
-                        'maxSize'=>'10000k',
-                        'mimeTypes'=>[
-                            'image/jpeg',
-                            'image/png'
-                        ],
-                        'mimeTypesMessage'=>'Upload image file'
-                    ])
-                ]
+                    new NotBlank(),
+                ],
+                'attr' =>['type'=> 'date','id'=>'date','name'=>'dateFrom']
+
+
             ])
-            ->add('save',SubmitType::class,array('label'=>'Add car'));
+            ->add('time_from',TimeType::class,[
+                'required' =>true,
+                'constraints'=>[
+                    new NotBlank(),
+                ],
+                'attr' =>['data-role'=> 'timepicker','name'=>'time','data-seconds'=>'false','data-locale'=>'uk-UA']
+
+
+            ])
+            ->add('time_to',TimeType::class,[
+                'required' =>true,
+                'constraints'=>[
+                    new NotBlank(),
+                ],
+                'attr' =>['data-role'=> 'timepicker','name'=>'time','data-seconds'=>'false','data-locale'=>'uk-UA']
+
+
+            ])
+
+            ->add('save',SubmitType::class,array('label'=>'Order car'));
     }
     public function configureOptions(\Symfony\Component\OptionsResolver\OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => \App\Entity\Cars::class
+            'data_class' => \App\Entity\Orders::class
         ]);
     }
 }

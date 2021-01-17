@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Update by ID!{% endblock %}
+
+{% block body %}
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4"><img id="car_photo"  class="img-fluid" src="{{ car.photo }}" alt=""></div>
+
+            <div class="col-8">
+                <form action="" method="post">
+                    <div class="form-group">
+                        <label for="name">Car name</label>
+                        <input type="text" class="form-control" id="name" value="{{ car.name }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Car name</label>
+                        <input type="text" class="form-control" id="name" value="{{ car.model }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Car name</label>
+                        <input type="text" class="form-control" id="name" value="{{ car.color }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Car name</label>
+                        <input type="text" class="form-control" id="name" value="{{ car.status }}">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Car name</label>
+                        <input type="file" onchange="readURL(this);" class="form-control" id="name" value="{{ car.photo }}">
+
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary w-100"> Update </button>
+                </form>
+            </div>
+
+        </div>
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    let reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $('#car_photo')
+                            .attr('src', e.target.result)
+
+                    };
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        </script>
+    </div>
+{% endblock %}

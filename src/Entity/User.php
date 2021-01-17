@@ -75,7 +75,7 @@ class User implements UserInterface
     private $flat;
 
     /**
-     * @ORM\OneToOne(targetEntity=Orders::class, mappedBy="client_id", cascade={"persist", "remove"})
+     * @ORM\OneToMany  (targetEntity=Orders::class, mappedBy="client_id", cascade={"persist", "remove"})
      */
     private $orders;
 
