@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CarsController!{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    <div class="example-wrapper">
+
+                    <div>{{ car.name }}</div>
+                    <div>
+                        {{ car.model }}
+                    </div>
+                    <div>{{ car.color }}</div>
+                    <div>{{ car.year }}</div>
+{#                    <div>{{ car.status }}</div>#}
+                    <img class="img-fluid" src="{{ car.photo }}" alt="">
+
+
+                <a class="btn btn-primary" href="{{ path('orders.orderCar', {id: car.id}) }}">Замовити</a>
+
+
+    </div>
+{% endblock %}
