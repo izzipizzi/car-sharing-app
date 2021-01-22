@@ -22,20 +22,33 @@
         li{
             list-style: none;
         }
+
+        .form-group{
+            display: flex;
+            margin-top: 1rem;
+            align-items: center !important;
+            justify-content: space-between;
+            padding: 10px;
+        }
     </style>
 
     <div class="container">
 
-        <div class="row">
-            <ul>
-                <li>{{ knp_pagination_sortable(cars, 'Номер', 'c.id') }}</li>
-                <li>{{ knp_pagination_sortable(cars, 'Марка ', 'c.name') }}</li>
-                <li>{{ knp_pagination_sortable(cars, 'Модель', 'c.model') }}</li>
-                <li>{{ knp_pagination_sortable(cars, 'Рік', 'c.year') }}</li>
-                <li>{{ knp_pagination_sortable(cars, 'Статус', 'c.status') }}</li>
+            <form method="get" action="" class="row d-flex justify-content-around align-content-center">
+                {{ form_rest(form) }}
+            </form>
+            <ul class="row d-flex justify-content-between">
+                <li class="col-auto">{{ knp_pagination_sortable(cars, 'Номер', 'c.id') }}</li>
+                <li class="col-auto">{{ knp_pagination_sortable(cars, 'Марка ', 'c.name') }}</li>
+                <li class="col-auto">{{ knp_pagination_sortable(cars, 'Модель', 'c.model') }}</li>
+                <li class="col-auto">{{ knp_pagination_sortable(cars, 'Рік', 'c.year') }}</li>
+                <li class="col-auto">{{ knp_pagination_sortable(cars, 'Статус', 'c.status') }}</li>
             </ul>
-        </div>
+
+{#        <div class="row">#}
+{#        </div>#}
         <div class="row">
+
 
 
             {% for car in cars %}

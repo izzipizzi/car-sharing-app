@@ -17,65 +17,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e32c90f-94a1-4ebb-93ab-ac59bd8af33c" name="Default Changelist" comment="added something">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/car_sharing.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/packages/paginator.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210107074431.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210107074629.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/Version20210112102835.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/cars/2021-01-04-122126-5ffdd6dacc9bd.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/cars/IMG-20201219-092342-5ffd7b3c633ad.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/cars/IMG-7604-result-5fa1067b76d99.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/cars/IMG-7604-result-5fa1173ce5539.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/cars/IMG-7604-result-5fa11778a248e.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/cars/IMG-7604-result-5fa117ae93621.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/cars/IMG-7604-result-5fa11829c6675.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/cars/IMG-7604-result-5fa118a93e1ec.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/cars/IMG-7604-result-5fa11918ec64e.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/cars/IMG-7666-result-5f91195b8e971.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/images/cars/photo-2020-12-28-13-29-32-5feb457b5a138.jpeg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/CarTypesController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/OrdersController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Controller/TariffController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFixtures/CarsFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entity/CarTypes.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/CarTypesType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/CarsType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/OrdersType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Form/TariffType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/CarTypesRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin_panel/add_car_type.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/admin_panel/add_tariff.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cars/add.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cars/updateCarByID.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/cars/updateList.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/orders/orderByID.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/orders/orderCar.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/orders/userList.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/api_platform.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/lexik_form_filter.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/packages/nelmio_cors.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config/routes/api_platform.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/FilterAdminOrdersType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Form/FilterCarsType.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/orders/adminOrderList.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/car_sharing.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/car_sharing.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201020061009.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/Version20201020072538.php" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/Version20210107073238.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/CarsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CarsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/OrdersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OrdersController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Cars.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Cars.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Orders.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Orders.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Tariff.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Tariff.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Kernel.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/CarsRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/CarsRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/OrdersRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/OrdersRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/TariffRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/TariffRepository.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin_panel/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin_panel/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/cars/carByID.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cars/carByID.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/cars/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/cars/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -196,6 +159,12 @@
       <path value="$PROJECT_DIR$/vendor/friendsofphp/proxy-manager-lts" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
+      <path value="$PROJECT_DIR$/vendor/lexik/form-filter-bundle" />
+      <path value="$PROJECT_DIR$/vendor/api-platform/core" />
+      <path value="$PROJECT_DIR$/vendor/symfony/proxy-manager-bridge" />
+      <path value="$PROJECT_DIR$/vendor/willdurand/negotiation" />
+      <path value="$PROJECT_DIR$/vendor/fig/link-util" />
+      <path value="$PROJECT_DIR$/vendor/nelmio/cors-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1j8s5En6iXSgpFkWmXmntCKtwlO" />
@@ -211,7 +180,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Controller" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/orders" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -225,11 +194,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\files\car_sharing\src\Controller" />
-      <recent name="C:\files\car_sharing\src\Form" />
-      <recent name="C:\files\car_sharing\templates\admin_panel" />
       <recent name="C:\files\car_sharing\templates\orders" />
-      <recent name="C:\files\car_sharing\src\Repository" />
+      <recent name="C:\files\car_sharing\src\Form" />
+      <recent name="C:\files\car_sharing\templates" />
+      <recent name="C:\files\car_sharing\src\Controller" />
+      <recent name="C:\files\car_sharing\templates\admin_panel" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -248,6 +217,8 @@
       <workItem from="1609253271958" duration="1902000" />
       <workItem from="1609831124249" duration="57114000" />
       <workItem from="1610868370176" duration="125000" />
+      <workItem from="1610868588094" duration="16072000" />
+      <workItem from="1611327298538" duration="2193000" />
     </task>
     <task id="LOCAL-00001" summary="added something">
       <created>1603279635303</created>
@@ -256,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603279635303</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="base">
+      <created>1610868829378</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1610868829378</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +272,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="added something" />
-    <option name="LAST_COMMIT_MESSAGE" value="added something" />
+    <MESSAGE value="base" />
+    <option name="LAST_COMMIT_MESSAGE" value="base" />
   </component>
   <component name="WindowStateProjectService">
     <state x="194" y="254" key="#SQL_Dialects" timestamp="1604398786654">
@@ -305,10 +284,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="449" y="148" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1536.824@0.0.1536.824" timestamp="1610868386445" />
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1610450230403">
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1610959870887">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1610450230403" />
+    <state x="499" y="167" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.824@0.0.1536.824" timestamp="1610959870887" />
     <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1603358545358">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -321,14 +300,18 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="576" y="135" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1609913470081" />
-    <state x="604" y="335" key="NewPhpFileDialog" timestamp="1609833023062">
+    <state x="604" y="335" key="NewPhpFileDialog" timestamp="1610870539622">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="604" y="335" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1609833023062" />
+    <state x="604" y="335" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1610870539622" />
     <state x="256" y="114" key="SettingsEditor" timestamp="1609936010283">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="256" y="114" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1609936010283" />
+    <state x="570" y="318" key="git4idea.remote.GitConfigureRemotesDialog" timestamp="1610868789703">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="570" y="318" key="git4idea.remote.GitConfigureRemotesDialog/0.0.1536.824@0.0.1536.824" timestamp="1610868789703" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1609936013430">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

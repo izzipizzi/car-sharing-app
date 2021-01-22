@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Список всіх замовлень{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper {
+            margin: 1em auto;
+            max-width: 800px;
+            width: 95%;
+            font: 18px/1.5 sans-serif;
+        }
+
+        .example-wrapper code {
+            background: #F5F5F5;
+            padding: 2px 6px;
+        }
+
+        ul {
+            display: flex;
+            flex-direction: row;
+        }
+
+        li {
+            list-style: none;
+        }
+        .form-group{
+            display: flex;
+            margin-top: 1rem;
+            align-items: center !important;
+            justify-content: space-between;
+            padding: 10px;
+        }
+    </style>
+
+    <div class="container">
+
+        <form method="get" action="" class="row d-flex justify-content-around align-content-center">
+            {{ form_rest(form) }}
+            <div class="form-group">
+
+            <a class="btn btn-outline-danger" href={{ path('orders.adminOrders')}}>Скинути фільтри</a>
+            </div>
+        </form>
+        <ul class="row d-flex justify-content-between">
+            <li class="col-auto">{{ knp_pagination_sortable(orders, 'Номер', 'c.id') }}</li>
+            <li class="col-auto">{{ knp_pagination_sortable(orders, 'Номер машини', 'c.car_id') }}</li>
+            <li class="col-auto">{{ knp_pagination_sortable(orders, 'Номер користувача', 'c.client_id') }}</li>
+            <li class="col-auto">{{ knp_pagination_sortable(orders, 'Дата', 'c.date_from') }}</li>
+            <li class="col-auto">{{ knp_pagination_sortable(orders, 'Час з', 'c.time_from') }}</li>
+            <li class="col-auto">{{ knp_pagination_sortable(orders, 'Час до', 'c.time_to') }}</li>
+            <li class="col-auto">{{ knp_pagination_sortable(orders, 'Ціна', 'c.price') }}</li>
+        </ul>
+        <div class="row">
+            <div class="col-12">
+
+                <ul class="list-group">
+                    {% for order in orders %}
+                        <li class="list-group-item w-100">
+                            <a class="btn btn-outline-primary" href="{{ path('orders.orderByID', {id: order.id}) }}">{{ order.id }}</a>
+                            {{ order.carId.name }} {{ order.carId.model }} {{ order.carId.year }} <b>{{ order.dateFrom.format('Y-m-d')  }} </b>
+                            з  <b>{{ order.timeFrom.format('H:i:s') }} </b>
+                            по<b> {{ order.timeTo.format('H:i:s') }} </b></li>
+                        {# <li class="list-group-item">Dapibus ac facilisis in</li> #}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        {# display navigation #}
+        <div class="navigation align-content-center">
+            {{ knp_pagination_render(orders) }}
+        </div>
+    </div>
+{% endblock %}

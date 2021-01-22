@@ -34,6 +34,10 @@ tariff_add:
 user_orders:
   path: /user/personal/orders
   controller: App\Controller\OrdersController::userOrders
+
+admin_order_list:
+    path: admin/panel/orders
+    controller: App\Controller\OrdersController::adminOrders
 #carByID:
 #  path : /cars/{id}
 #  controller : App\Controller\CarsController::cars.carByID

@@ -6,7 +6,9 @@ use App\Entity\Orders;
 use App\Entity\User;
 use CarsType;
 use Doctrine\ORM\EntityManagerInterface;
+use FilterAdminOrdersType;
 use Knp\Component\Pager\PaginatorInterface;
+use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdaterInterface;
 use OrdersType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -161,14 +163,63 @@ class OrdersController extends AbstractController
 
     /**
      *
-     * @Route ("/admin/panel/orders", name="orders.list")
+     * @Route ("/admin/panel/orders", name="orders.adminOrders")
      * @IsGranted("ROLE_ADMIN")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|Response
      */
-    public function listOrders(Request $request){
+    public function adminOrders(EntityManagerInterface $em,PaginatorInterface $paginator, Request $request,FilterBuilderUpdaterInterface $query_builder_updater):Response{
+//        $query = $em->createQuery('
+//        SELECT cars from App:Cars cars WHERE cars.status = :status')->setParameter('status' ,'FREE');
+//        $cars =$this->getDoctrine()->getRepository(Cars::class)->findAll();
 
+
+//            $cars = $em->getRepository(Cars::class)->findAllCars();
+//            $cars->getType()->getTypeName();
+
+        $repository = $this->getDoctrine()->getRepository('App:Orders');
+
+        $form = $this->get('form.factory')->create(FilterAdminOrdersType::class);
+
+        if ($request->query->has($form->getName())) {
+            // manually bind values from the request
+            $form->submit($request->query->get($form->getName()));
+            $item_filter_params = $request->get('item_filter');
+
+            // initialize a query builder
+            $filterBuilder = $repository->createQueryBuilder('c');
+
+            // build the query from the given form object
+            $query_builder_updater->addFilterConditions($form, $filterBuilder);
+//            $filterBuilder->setParameter('p_c_type_id',$item_filter_params['type_id']);
+
+            $dql   = $filterBuilder->getQuery();
+            $query = $filterBuilder->getQuery();
+            $orders = $paginator->paginate(
+                $query, /* query NOT result */
+                $request->query->getInt('page', 1), /*page number*/
+                6 /*limit per page*/
+            );
+
+        }else{
+            $dql   = "SELECT c FROM App:Orders c ORDER BY c.id ASC";
+//        $dql   = $filterBuilder->getDql();
+            $query = $em->createQuery($dql);
+
+            $orders = $paginator->paginate(
+                $query, /* query NOT result */
+                $request->query->getInt('page', 1), /*page number*/
+                6 /*limit per page*/
+            );
+
+
+        }
+
+
+
+        return $this->render('orders/adminOrderList.html.twig',['orders'=>$orders, 'form' => $form->createView()]);
     }
+
 
 
 

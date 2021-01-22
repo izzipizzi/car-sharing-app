@@ -4,7 +4,10 @@ namespace App\Controller;
 
 use App\Entity\User;
 use CarsType;
+//use ContainerJLUxHa7\getLexikFormFilter_QueryBuilderUpdaterService;
+use Lexik\Bundle\FormFilterBundle\Filter\FilterBuilderUpdaterInterface;
 use Doctrine\ORM\EntityManagerInterface;
+use FilterCarsType;
 use Knp\Component\Pager\PaginatorInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -27,30 +30,37 @@ class CarsController extends AbstractController
      */
 
 
-    public function list (EntityManagerInterface $em,PaginatorInterface $paginator, Request $request):Response{
-//        $query = $em->createQuery('
-//        SELECT cars from App:Cars cars WHERE cars.status = :status')->setParameter('status' ,'FREE');
-//        $cars =$this->getDoctrine()->getRepository(Cars::class)->findAll();
+    public function list (EntityManagerInterface $em,PaginatorInterface $paginator, Request $request,FilterBuilderUpdaterInterface $query_builder_updater):Response{
 
+        $repository = $this->getDoctrine()->getRepository('App:Cars');
 
-//            $cars = $em->getRepository(Cars::class)->findAllCars();
-//            $cars->getType()->getTypeName();
+        $form = $this->get('form.factory')->create(FilterCarsType::class);
 
+        if ($request->query->has($form->getName())) {
+            $form->submit($request->query->get($form->getName()));
+            $item_filter_params = $request->get('item_filter');
+            $filterBuilder = $repository->createQueryBuilder('c');
+            $query_builder_updater->addFilterConditions($form, $filterBuilder);
+            dump($filterBuilder,$request->get('item_filter'),$item_filter_params['type_id']);
+            var_dump($filterBuilder->getDql());
+            $query = $filterBuilder->getQuery();
+            dump($query);
+            $cars = $paginator->paginate(
+                $query, /* query NOT result */
+                $request->query->getInt('page', 1), /*page number*/
+                6 /*limit per page*/
+            );
 
-        $dql   = "SELECT c FROM App:Cars c ORDER BY c.status ASC";
-        $query = $em->createQuery($dql);
-
-        $cars = $paginator->paginate(
-            $query, /* query NOT result */
-            $request->query->getInt('page', 1), /*page number*/
-            6 /*limit per page*/
-        );
-
-        // parameters to template
-//        return $this->render('article/list.html.twig', ['pagination' => $pagination]);
-
-//            dump($cars);
-        return $this->render('cars/index.html.twig',['cars'=>$cars,]);
+        }else{
+            $dql   = "SELECT c FROM App:Cars c ORDER BY c.status ASC";
+            $query = $em->createQuery($dql);
+            $cars = $paginator->paginate(
+                $query, /* query NOT result */
+                $request->query->getInt('page', 1), /*page number*/
+                6 /*limit per page*/
+            );
+        }
+        return $this->render('cars/index.html.twig',['cars'=>$cars, 'form' => $form->createView()]);
     }
 
     /**

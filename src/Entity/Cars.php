@@ -2,11 +2,20 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\CarsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=CarsRepository::class)
+ * @ApiResource(
+ *  collectionOperations={"get"={"normalization_context"={"groups"="cars:list"}}},
+ *  itemOperations={"get"={"normalization_context"={"groups"="cars:item"}}},
+ *  order={"status"="DESC", "name"="ASC"},
+ *  paginationEnabled=false
+ *)
+ *
  */
 class Cars
 {
@@ -14,60 +23,77 @@ class Cars
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
+     * @Groups({
+     * "cars:list", "cars:item"
+     * })
      */
-    private $id;
+
+    private
+        $id;
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Groups({
+     * "cars:list", "cars:item"
+     * })
      */
-    private $name;
+    private
+        $name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"cars:list", "cars:item"})
      */
     private $model;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"cars:list", "cars:item"})
      */
     private $color;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"cars:list", "cars:item"})
      */
     private $year;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"cars:list", "cars:item"})
      */
     private $photo;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"cars:list", "cars:item"})
      */
     private $status;
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"cars:list", "cars:item"})
      */
     private $location;
 
     /**
      * @ORM\ManyToOne  (targetEntity= CarTypes::class)
+     * @Groups({"cars:list", "cars:item"})
      */
     private $type_id;
 
     /**
      * @ORM\Column(type="date", nullable=true, options={"default" : "2021-01-07"})
+     * @Groups({"cars:list", "cars:item"})
      */
-    private $dateTo ;
+    private $dateTo;
     /**
      * @ORM\Column(type="time",nullable=true, options={"default" : "17:16:18"})
+     * @Groups({"cars:list", "cars:item"})
      */
     private $time_to;
     /**
      * @ORM\OneToMany (targetEntity=Orders::class, mappedBy="car_id", cascade={"persist", "remove"})
      */
-
     private $orders;
 
     public function getId(): ?int
